@@ -13,7 +13,8 @@ app.blueprints['flask-api'] = theme
 
 
 engineer = {
-    'name': 'Takia Ross',
+    'last_name': 'Ross',
+    'first_name': 'Takia',
     'email': 't.l.ross@outlook.com',
     'github': 'https://github.com/TR-1000',
     'linkedin': 'http://linkedin.com/in/takia-ross',
@@ -22,8 +23,8 @@ engineer = {
         'web scraping','data engineering','back-end development'
     ],
 
-    'skill': [
-        'Python','Pandas','Django','Flask','Beautiful Soup','PostgreSQL',
+    'skills': [
+        'Python','Pandas','Beautiful Soup','Django','Flask','PostgreSQL',
         'JavaScriipt','MEAN Stack'
     ],
 
