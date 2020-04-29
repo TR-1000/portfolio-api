@@ -78,7 +78,7 @@ engineer = {
     ]
 }
 
-@app.route('/software_enginner/')
+@app.route('/')
 def software_engineer():
     return engineer
 
