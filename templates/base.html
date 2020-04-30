@@ -15,7 +15,7 @@
             <link rel="stylesheet" type="text/css" href="{{url_for('flask-api.static', filename='css/bootstrap.min.css')}}"/>
             <link rel="stylesheet" type="text/css" href="{{url_for('flask-api.static', filename='css/bootstrap-tweaks.css')}}"/>
         {% endblock %}
-        <link rel="stylesheet" type="text/css" href="{{url_for('flask-api.static', filename='css/prettify.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="../static/css/prettify.css"/>
         <!-- <link rel="stylesheet" type="text/css" href="../static/css/bootstrap-tweaks.css"/> -->
         <link rel="stylesheet" type="text/css" href="../static/css/default.css"/>
         {% endblock %}
@@ -72,7 +72,7 @@
     <!-- Content -->
     <div id="content">
 
-        {% if 'GET' in allowed_methods %}
+        <!-- {% if 'GET' in allowed_methods %}
             <form id="get-form" class="pull-right">
                 <fieldset>
                     <div class="btn-group format-selection">
@@ -92,7 +92,7 @@
 
                 </fieldset>
             </form>
-        {% endif %}
+        {% endif %} -->
 
         <!--{% if 'OPTIONS' in allowed_methods %}
             <form class="button-form" action="{{ request.url }}" method="POST" class="pull-right">
