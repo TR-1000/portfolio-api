@@ -10,9 +10,14 @@ code, pre, body, .pln {
   color: #9d9d9d;
 }
 
-a.brand {
-  color: #9d9d9d
+.navbar-inverse .brand, .navbar-inverse .nav>li>a {
+  color: #d7d7d7
 }
+
+a.brand {
+  color: #d7d7d7
+}
+
 h1 {
   font-weight: 500;
   text-transform: capitalize;
