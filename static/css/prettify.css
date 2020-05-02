@@ -2,9 +2,11 @@
 /* .lit { color: #195f91; } */
 .pun, .opn, .clo { color: #93a1a1; }
 .fun { color: #dc322f; }
-.str, .atv { color: #D14; }
-/* .str, .atv { color: #57ff00; } */
-.lit, .kwd, .prettyprint .tag { color: #4cacf0; }
+/* .str, .atv { color: #D14; } */
+.str, .atv { color: #00ff0f; }
+.lit, .kwd, .prettyprint .tag {
+  color: #029f02;
+}
 .typ, .atn, .dec, .var { color: teal; }
 .pln { color: #48484c; }
 
