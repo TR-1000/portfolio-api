@@ -1,7 +1,7 @@
+runtime: python37
+
 includes:
   - env_variables.yaml
-
-runtime: python37
 
 handlers:
   # This configures Google App Engine to serve the files in the app's static

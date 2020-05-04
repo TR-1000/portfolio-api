@@ -6,9 +6,9 @@ import dns # install dnspython to use mongodb connection string
 # load envirinment variabless
 from dotenv import load_dotenv
 import os
-load_dotenv()
 
-connection_string = os.getenv('MONGODB_URI')
+load_dotenv()
+connection_string = os.environ.get('MONGODB_URI')
 connect(host=connection_string)
 
 
