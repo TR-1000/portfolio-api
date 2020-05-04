@@ -2,16 +2,14 @@ from flask_api import FlaskAPI
 from mongoengine import connect
 import mongoengine as mongo
 import json
+import dns # install dnspython to use mongodb connection string
+# load envirinment variabless
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-connect('myapi')
-
-# from flask import Blueprint
-# theme = Blueprint(
-#     'flask-api', __name__,
-#     url_prefix='/flask-api',
-#     template_folder='templates', static_folder='static'
-# )
-# app.blueprints['flask-api'] = theme
+connection_string = os.getenv('MONGODB_URI')
+connect(host=connection_string)
 
 
 app = FlaskAPI(__name__)
@@ -44,83 +42,26 @@ class Engineer(mongo.Document):
         return {
             'last_name': self.last_name,
             'first_name': self.first_name,
+            'email': self.email,
+            'githud': self.github,
+            'linkedin': self.linkedin,
+            'location': self.location,
+            'interests': self.interests,
+            'skills': self.skills,
+            'projects': self.projects,
         }
 
-engineer = {
-    'last_name': 'Ross',
-    'first_name': 'Takia',
-    'email': 't.l.ross@outlook.com',
-    'github': 'https://github.com/TR-1000',
-    'linkedin': 'http://linkedin.com/in/takia-ross',
-    'location': 'San Antonio, TX',
-    'interests': [
-        'web scraping','data engineering','back-end development'
-    ],
-
-    'skills': [
-        'Python','Pandas','Beautiful Soup','Django','Flask','PostgreSQL',
-        'JavaScriipt','MEAN Stack'
-    ],
-
-    'projects': [
-        {
-            'name': 'GameScraper',
-            'description': "Gaming news aggregation web scraper",
-            'url': 'https://mighty-oasis-10011.herokuapp.com',
-            'repo': 'https://github.com/TR-1000/GameScraper',
-            'technologies': ['Python','Beautiful Soup','Django'],
-            'group_project': False
-
-        },
-        {
-            'name': 'What Are You Watching Tonight',
-            'description': "OMBD movie app",
-            'url': 'https://blooming-headland-45308.herokuapp.com',
-            'repo': 'https://github.com/TR-1000/probable-potato',
-            'technologies': ['Ruby on Rails','React'],
-            'group_project': True
-
-        },
-        {
-            'name': 'FireWatch',
-            'description': "A web app for keeping track of major fires across the globe",
-            'url': 'https://the-firewatch.herokuapp.com',
-            'repo': 'https://github.com/TR-1000/Firewatch',
-            'technologies': ['MongoDB','Express','Angular.js', 'Node'],
-            'group_project': True
-
-        },
-        {
-            'name': 'A Game of Phones',
-            'description': "A full stack app for logging a smartphone collection",
-            'url': 'https://the-phone-book.herokuapp.com',
-            'repo': 'https://github.com/TR-1000/aGameOfPhones',
-            'technologies': ['Node','Express','MongoDB'],
-            'group_project': False
-
-        },
-        {
-            'name': 'Did I Buy That/Have I Played It?',
-            'description': "An app for quickly searching through your Steam library so you don't buy the same game twice.",
-            'url': 'https://tr-1000.github.io/steam-api-app',
-            'repo': 'https://github.com/TR-1000/TR-1000.github.io/tree/master/steam-api-app',
-            'technologies': ['JavaScript', 'jQuery', 'HTML', 'CSS'],
-            'group_project': False
-
-        }
-    ]
-}
-
-
-for me in Engineer.objects:
-    print(me.as_dict())
 
 
 @app.route('/')
 def software_engineer():
+    # get engineer with matching id string and jsonify it
+    me = json.loads(Engineer.objects(id='5eaf9af9c9b2042506ebd784').to_json())[0]
+    # remove the id key with pop and return
+    me.pop('_id')
+    return me
 
 
-    return json.loads(me.to_json())
 
 if __name__ == "__main__":
     app.run(debug=True)

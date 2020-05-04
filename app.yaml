@@ -1,3 +1,6 @@
+includes:
+  - env_variables.yaml
+
 runtime: python37
 
 handlers:
