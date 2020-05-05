@@ -3,7 +3,7 @@
 content running up underneath it. */
 
 html {
-  background: black;
+  background: #000;
 }
 
 code, pre, body, .pln {
@@ -14,6 +14,8 @@ code, pre, body, .pln {
 .navbar-inverse .brand, .navbar-inverse .nav>li>a {
   /* color: #d7d7d7; */
   color: #00ff0f;
+  font-size: 1.90em;
+
 }
 
 a.brand {
@@ -25,8 +27,7 @@ a.brand {
   color: #00ff0f;
 }
 
-h1 {
-  font-weight: 500;
+h2 {
   text-transform: capitalize;
 }
 
@@ -48,9 +49,9 @@ span {
 }
 
 .prettyprint {
-  background-color: #101910;
+  background-color: #0f120f;
   padding: 8px;
-  border: 1px solid #383839
+  border: 1px solid #1c1c1d
 }
 
 pre.main-content {
@@ -63,10 +64,11 @@ pre.main-content {
    bottom: 0;
    width: 100%;
    height: 45px;
-   background-color: #061006;
+   background-color: #000;
    color: #00ff0f;
    line-height: 50px;
    text-align: center;
+   /* border-top: 1px solid #1d1d1d; */
 }
 
 .resource-description, .response-info {
@@ -129,7 +131,8 @@ pre {
 }
 
 .navbar .navbar-inner {
-    border-top: 5px solid #000000;
-    background-color: #061006;
+    border-top: 5px solid #000;
+    background-color: #000;
+    /* border-bottom: 1px solid #1d1d1d */
 
 }

@@ -32,7 +32,7 @@
         <div class="navbar-inner">
             <div class="container-fluid">
                 <span href="/">
-                    {% block branding %}<a class='brand' rel="nofollow" href="http://linkedin.com/in/takia-ross">T. L. Ross</a>{% endblock %}
+                    {% block branding %}<a class='brand' rel="nofollow" href="https://github.com/TR-1000">T. L. Ross</a>{% endblock %}
                 </span>
                 <ul class="nav pull-right">
                     {% block userlinks %}
@@ -111,7 +111,7 @@
         {% endif %}
 
         <div class="content-main">
-            <div class="page-header"><h1>{{ view_name }}</h1></div>
+            <div class="page-header"><h2>{{ view_name }}</h2></div>
             {% if view_description %}<div style="margin-top: -10px; margin-bottom: 10px">{{ view_description|safe }}</div>{% endif %}
             <div class="request-info" style="clear: both" >
                 <pre class="prettyprint"><b>{{ request.method }}</b> {{ request.url }}</pre>
