@@ -1,3 +1,7 @@
+# Thank's for checking out my api/portfolio!
+
+
+
 from flask_api import FlaskAPI
 from mongoengine import connect
 import mongoengine as mongo
@@ -15,7 +19,6 @@ connect(host=connection_string)
 app = FlaskAPI(__name__)
 
 
-
 class Project(mongo.EmbeddedDocument): # Embedded document class
     name = mongo.StringField()
     description = mongo.StringField()
@@ -23,9 +26,6 @@ class Project(mongo.EmbeddedDocument): # Embedded document class
     repo = mongo.StringField()
     technologies = mongo.ListField()
     group_project = mongo.BooleanField()
-
-
-
 
 class Engineer(mongo.Document):
     last_name = mongo.StringField(required=True)
@@ -50,7 +50,6 @@ class Engineer(mongo.Document):
             'skills': self.skills,
             'projects': self.projects,
         }
-
 
 
 @app.route('/')
