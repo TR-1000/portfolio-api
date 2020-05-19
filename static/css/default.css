@@ -6,7 +6,11 @@ html {
   background: #000;
 }
 
-code, pre, body, .pln {
+body a:hover{
+  color: #50f04d;
+}
+
+h2, code, pre, body, .pln {
   /* color: #9d9d9d; */
   color: #00ff0f;
 }
@@ -68,7 +72,7 @@ pre.main-content {
    color: #00ff0f;
    line-height: 50px;
    text-align: center;
-   /* border-top: 1px solid #1d1d1d; */
+   border-top: 1px solid #121212;
 }
 
 .resource-description, .response-info {
@@ -133,6 +137,6 @@ pre {
 .navbar .navbar-inner {
     border-top: 5px solid #000;
     background-color: #000;
-    /* border-bottom: 1px solid #1d1d1d */
+    border-bottom: 1px solid #121212
 
 }
