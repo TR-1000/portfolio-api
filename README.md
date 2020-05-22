@@ -2,6 +2,5 @@
 This is my project portfolio styled as an API
 
 Built with:
-* Flask-API
-* MongoDB
-
+* [Flask-API](http://www.flaskapi.org/)
+* [MongoEngine](http://mongoengine.org/)
