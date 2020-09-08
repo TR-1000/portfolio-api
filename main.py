@@ -53,7 +53,7 @@ class Engineer(mongo.Document):
 
 
 @app.route('/')
-def software_engineer():
+def software_developer():
     # get engineer with matching id string and jsonify it
     me = json.loads(Engineer.objects(id='5eaf9af9c9b2042506ebd784').to_json())[0]
     # remove the id key with pop and return
