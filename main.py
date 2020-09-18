@@ -19,43 +19,47 @@ connect(host=connection_string)
 app = FlaskAPI(__name__)
 
 
-class Project(mongo.EmbeddedDocument): # Embedded document class
-    name = mongo.StringField()
+class Experience(mongo.EmbeddedDocument): # Embedded document class
+    company = mongo.StringField()
+    start_date = mongo.StringField()
+    end_date = mongo.StringField()
     description = mongo.StringField()
-    url = mongo.StringField()
-    repo = mongo.StringField()
-    technologies = mongo.ListField()
-    group_project = mongo.BooleanField()
+
+
+
+class School(mongo.EmbeddedDocument):
+    school = mongo.StringField()
+    credential = mongo.StringField()
+    field_of_study = mongo.StringField()
+    location = mongo.StringField()
+    year = mongo.StringField()
+
 
 class Engineer(mongo.Document):
     last_name = mongo.StringField(required=True)
     first_name = mongo.StringField(required=True)
-    email = mongo.StringField(required=True)
-    github = mongo.StringField(required=True)
-    linkedin = mongo.StringField(required=True)
     location = mongo.StringField(required=True)
     interests = mongo.ListField()
     skills = mongo.ListField()
-    projects = mongo.EmbeddedDocumentListField(Project)
+    experience = mongo.EmbeddedDocumentListField(Experience)
+    education = mongo.EmbeddedDocumentListField(School)
 
     def as_dict(self):
         return {
             'last_name': self.last_name,
             'first_name': self.first_name,
-            'email': self.email,
-            'githud': self.github,
-            'linkedin': self.linkedin,
             'location': self.location,
             'interests': self.interests,
             'skills': self.skills,
-            'projects': self.projects,
+            'experience': self.projects,
+            'education': self.projects
         }
 
 
 @app.route('/')
 def software_developer():
     # get engineer with matching id string and jsonify it
-    me = json.loads(Engineer.objects(id='5eaf9af9c9b2042506ebd784').to_json())[0]
+    me = json.loads(Engineer.objects.to_json())[0]
     # remove the id key with pop and return
     me.pop('_id')
     return me
