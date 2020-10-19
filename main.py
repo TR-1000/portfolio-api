@@ -8,6 +8,7 @@ import mongoengine as mongo
 import json
 import dns # install dnspython to use mongodb connection string
 # load envirinment variabless
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
@@ -17,7 +18,7 @@ connect(host=connection_string)
 
 
 app = FlaskAPI(__name__)
-
+cors = CORS(app)
 
 class Experience(mongo.EmbeddedDocument): # Embedded document class
     company = mongo.StringField()
