@@ -62,7 +62,7 @@ html{
 }
 
 body, .navbar .navbar-inner .container-fluid {
-  max-width: 1150px;
+  /* max-width: 1150px; */
   margin: 0 auto;
 }
 
